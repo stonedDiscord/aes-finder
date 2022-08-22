@@ -39,7 +39,6 @@ jobs:
       - name: Build using make
         run: |
           make
-          ls
 
       - name: Upload Artifact
         uses: actions/upload-artifact@master
@@ -49,7 +48,7 @@ jobs:
 
   windows:
     name: Windows
-    runs-on: windows-2016
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
