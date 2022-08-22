@@ -51,18 +51,13 @@ jobs:
 
   windows:
     name: Windows
-    runs-on: windows-latest
+    runs-on: windows-2016
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
           repository: ${{ env.GITHUB_REPOSITORY }}
           ref: ${{ env.GITHUB_HEAD_REF }}
-
-      - name: Install dependencies
-        uses: microsoft/setup-msbuild@v1.1
-        with:
-          vs-version: '[15.0]'
 
       - name: Build
         run: |
