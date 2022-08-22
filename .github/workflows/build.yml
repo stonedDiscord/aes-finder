@@ -61,7 +61,7 @@ jobs:
 
       - name: Build
         run: |
-          msbuild aes-finder.sln
+          msbuild aes-finder.sln /property:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
 
       - name: Upload Artifact
         uses: actions/upload-artifact@master
