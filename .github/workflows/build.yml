@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: linux-aes-finder
-          path: ./aes-finder
+          path: ./bin/aes-finder
 
   macos:
     name: macOS
@@ -36,10 +36,6 @@ jobs:
           repository: ${{ env.GITHUB_REPOSITORY }}
           ref: ${{ env.GITHUB_HEAD_REF }}
 
-      - name: Install dependencies
-        run: |
-          brew install openssl
-
       - name: Build using make
         run: |
           make
@@ -49,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: mac-aes-finder
-          path: ./aes-finder
+          path: ./bin/aes-finder
 
   windows:
     name: Windows
@@ -69,4 +65,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: windows-aes-finder
-          path: ./aes-finder.exe
+          path: ./bin/aes-finder.exe
