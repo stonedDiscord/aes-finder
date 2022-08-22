@@ -61,6 +61,7 @@ jobs:
 
       - name: Build
         run: |
+          "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat"
           msbuild aes-finder.sln /property:Configuration=Release /p:Platform=x64 /p:PlatformToolset=v143
 
       - name: Upload Artifact
