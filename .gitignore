@@ -1,4 +1,6 @@
 aes-finder.o
 bin/
 build/
-
+.vs/
+.editorconfig
+*.vcxproj.user
