@@ -41,7 +41,9 @@ jobs:
           brew install openssl
 
       - name: Build using make
-        run: make
+        run: |
+          make
+          ls
 
       - name: Upload Artifact
         uses: actions/upload-artifact@master
