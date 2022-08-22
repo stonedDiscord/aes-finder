@@ -17,11 +17,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential
       
-      - name: Build using g++
-        run: g++ -O3 -march=native -fomit-frame-pointer aes-finder.cpp -o aes-finder
-
       - name: Build using makefile
         run: make
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: linux-aes-finder
+          path: ./aes-finder
 
   macos:
     name: macOS
@@ -39,6 +42,12 @@ jobs:
 
       - name: Build using make
         run: make
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: mac-aes-finder
+          path: ./aes-finder
 
   windows:
     name: Windows
@@ -58,3 +67,9 @@ jobs:
       - name: Build
         run: |
           msbuild aes-finder.sln
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: windows-aes-finder
+          path: ./aes-finder.exe
