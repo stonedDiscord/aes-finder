@@ -51,9 +51,9 @@ jobs:
           ref: ${{ env.GITHUB_HEAD_REF }}
 
       - name: Install dependencies
-          uses: microsoft/setup-msbuild@v1.1
-          with:
-            vs-version: '[15.0]'
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          vs-version: '[15.0]'
 
       - name: Build
         run: |
