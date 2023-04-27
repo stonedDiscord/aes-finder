@@ -17,7 +17,7 @@ static uint32_t _rotr(uint32_t x, int n)
 #include <x86intrin.h>
 #endif
 
-#if defined(_rotr) || defined(_WIN32))
+#if defined(_rotr) || defined(_WIN32)
 // nothing
 #else
 /* Some platforms do not have _rotr defined in any of the above cases. Implement here */
