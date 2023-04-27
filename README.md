@@ -10,15 +10,15 @@ Usage
 
 Open `aes-finder.sln` solution in Visual Studio 2013 to compile source. Alternatively use gcc/clang:
 
-    `g++ -O3 -march=native -fomit-frame-pointer aes-finder.cpp -o aes-finder`
+    g++ -O3 -march=native -fomit-frame-pointer aes-finder.cpp -o aes-finder
 
 To search for keys in process with id = 123, execute following:
 
-    `aes-finder.exe -123 `
+    aes-finder.exe -123
 
 To search for keys in any process with the name `chrome.exe`, execute following:
 
-    `aes-finder.exe chrome.exe`
+    aes-finder.exe chrome.exe
 
 Now you can see what kind of AES keys are used in your favorite application!
 
