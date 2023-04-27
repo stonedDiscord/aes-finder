@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#if defined(WIN32)
+#if defined(WIN32) || defined(_WIN32)
 #include "os_windows.h"
 #elif defined(__ANDROID__)
 #include "os_android.h"
