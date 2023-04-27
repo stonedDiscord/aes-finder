@@ -1,7 +1,8 @@
 AES Finder
 ==========
 
-Utility to find AES keys in running process memory. Works for 128, 192 and 256-bit keys.
+Utility to find AES keys in running process memory.
+Works for 128, 192 and 256-bit keys.
 
 
 Usage
@@ -9,20 +10,20 @@ Usage
 
 Open `aes-finder.sln` solution in Visual Studio 2013 to compile source. Alternatively use gcc/clang:
 
-    g++ -O3 -march=native -fomit-frame-pointer aes-finder.cpp -o aes-finder
+    `g++ -O3 -march=native -fomit-frame-pointer aes-finder.cpp -o aes-finder`
 
 To search for keys in process with id = 123, execute following:
 
-    aes-finder.exe -123 
+    `aes-finder.exe -123 `
 
-To search for keys in any process with name chrome.exe, execute following:
+To search for keys in any process with the name `chrome.exe`, execute following:
 
-    aes-finder.exe chrome.exe
+    `aes-finder.exe chrome.exe`
 
 Now you can see what kind of AES keys are used in your favorite application!
 
 ### Putty
-
+```
     C:\>aes-finder.exe putty.exe
     Searching PID 2180 ...
     [0016C904] Found AES-256 encryption key: 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f
@@ -32,9 +33,9 @@ Now you can see what kind of AES keys are used in your favorite application!
     [00AA5458] Found AES-256 encryption key: 892372c26c5601a28e5dd20a64976faa219907c6c9a33a9d1ff3376609bd53f7
     [00AA5638] Found AES-256 decryption key: 892372c26c5601a28e5dd20a64976faa219907c6c9a33a9d1ff3376609bd53f7
     Done!
-
+```
 ### Dropbox
-
+```
     C:\>aes-finder.exe dropbox.exe
     Searching PID 2204 ...
     [00F5DDE8] Found AES-128 encryption key: e73c856f10e56d8ded0510e964e71b33
@@ -68,9 +69,9 @@ Now you can see what kind of AES keys are used in your favorite application!
     [03A0EB6C] Found AES-256 decryption key: 28ad3cba4b91556825a3f301358901416eb16253b0bc7e43be0303caa53a001e
     [071868B0] Found AES-256 decryption key: 7a1d726b3b7c81a65887e12296d3102ead96a3a71a100fd4c48ccbc421f3d570
     Done!
-    
+```
 ### Chrome
-
+```
     C:\>aes-finder.exe chrome.exe
     Searching PID 1792 ...
     [08D8302C] Found AES-256 decryption key: c73159441a23df68b292a666a082418048a844813dfe8636126e875204813291
@@ -96,9 +97,9 @@ Now you can see what kind of AES keys are used in your favorite application!
     Searching PID 2744 ...
     Searching PID 3592 ...
     Done!
-
+```
 ### Python + PyCrypto
-
+```
     C:\>start python -c "from Crypto.Cipher import AES; a=AES.new('\x42'*24, AES.MODE_ECB); input()"
     
     C:\>aes-finder.exe python.exe
@@ -106,9 +107,9 @@ Now you can see what kind of AES keys are used in your favorite application!
     [00B84074] Found AES-192 encryption key: 424242424242424242424242424242424242424242424242
     [00B84164] Found AES-192 decryption key: 424242424242424242424242424242424242424242424242
     Done!    
-
+```
 ### sshd on Linux
-
+```
     $ sudo ./aes-finder sshd
     Searching PID 3307 ...
     Searching PID 10428 ...
@@ -116,9 +117,9 @@ Now you can see what kind of AES keys are used in your favorite application!
     [0x7fc39b3132d0] Found AES-128 encryption key: df435cfcd8830df858203c0ad2db51ca
     [0x7fc39b313450] Found AES-128 encryption key: 0ad922797aba3078841bc298104bb39a
     Done!
-
+```
 ### iTunes on Mac OS X
-
+```
     $ sudo ./aes-finder iTunes
     Searching PID 40912 ...
     [0x7fe073e7dd3c] Found AES-128 encryption key: 743554fb48b78d29ad73fbd231373982
@@ -128,11 +129,11 @@ Now you can see what kind of AES keys are used in your favorite application!
     [0x7fe0758aac6c] Found AES-128 encryption key: 000102030405060708090a0b0c0d0e0f
     [0x7fe0758aad5c] Found AES-128 decryption key: 000102030405060708090a0b0c0d0e0f
     Done!
-
+```
 Notes
 -----
 
-* does not work on whitebox AES keys
+* Does not work on whitebox AES keys
 * 32-bit binary can search only in 32-bit processes, 64-bit binary can search in both - 32 and 64-bit ones
 * "encryption key" means that this key can be used for encryption or decryption
 * "decryption key" means that this key most likely is used only for decryption
